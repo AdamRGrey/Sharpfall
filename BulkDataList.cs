@@ -1,6 +1,9 @@
 using System;
 namespace Sharpfall
 {
+    //fyi: there's a Guid built in to .net. But it's not necessarily exactly identical to RFC4122's description of a uuid.
+    using UUID = System.String;
+    
     public class BulkDataList
     {
         public string @object { get; set; }
@@ -10,7 +13,7 @@ namespace Sharpfall
     public class BulkMetaEntry
     {
         public string @object { get; set; }
-        public Guid id { get; set; }
+        public UUID id { get; set; }
         public string type { get; set; }
         public DateTime updated_at { get; set; }
         public Uri uri { get; set; }

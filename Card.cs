@@ -5,7 +5,6 @@ namespace Sharpfall
 {
     //fyi: there's a Guid built in to .net. But it's not necessarily exactly identical to RFC4122's description of a uuid.
     using UUID = System.String;
-    using Colors = IEnumerable<Color>;
     public class Card
     {
         public int? arena_id; //This card’s Arena ID, if any. A large percentage of cards are not available on Arena and do not have this ID.
@@ -27,9 +26,9 @@ namespace Sharpfall
         public IEnumerable<RelatedCard> all_parts; //If this card is closely related to other cards, this property will be an array with Related Card Objects.
         public IEnumerable<CardFace> card_faces; //An array of Card Face objects, if this card is multifaced.
         public decimal cmc; //The card’s converted mana cost. Note that some funny cards have fractional mana costs.
-        public Colors color_identity; //This card’s color identity.
-        public Colors color_indicator; //The colors in this card’s color indicator, if any. A null value for this field indicates the card does not have one.
-        public Colors colors; //This card’s colors, if the overall card has colors defined by the rules. Otherwise the colors will be on the card_faces objects, see below.
+        public IEnumerable<Color> color_identity; //This card’s color identity.
+        public IEnumerable<Color> color_indicator; //The colors in this card’s color indicator, if any. A null value for this field indicates the card does not have one.
+        public IEnumerable<Color> colors; //This card’s colors, if the overall card has colors defined by the rules. Otherwise the colors will be on the card_faces objects, see below.
         public int? edhrec_rank; //This card’s overall rank/popularity on EDHREC. Not all cards are ranked.
         public string hand_modifier; //This card’s hand modifier, if it is Vanguard card. This value will contain a delta, such as -1.
         public IEnumerable<string> keywords; //An array of keywords that this card uses, such as 'Flying' and 'Cumulative upkeep'.
@@ -42,7 +41,7 @@ namespace Sharpfall
         public string oracle_text; //The Oracle text for this card, if any.
         public bool oversized; //True if this card is oversized.
         public string power; //This card’s power, if any. Note that some cards have powers that are not numeric, such as *.
-        public Colors produced_mana; //Colors of mana that this card could produce.
+        public IEnumerable<Color> produced_mana; //Colors of mana that this card could produce.
         public bool reserved; //True if this card is on the Reserved List.
         public string toughness; //This card’s toughness, if any. Note that some cards have toughnesses that are not numeric, such as *.
         public string type_line; //The type line of this card. 

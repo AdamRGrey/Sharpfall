@@ -4,12 +4,11 @@ using System.Collections.Generic;
 namespace Sharpfall
 {
     using UUID = System.String;
-    using Colors = IEnumerable<Color>;
     public class CardFace
     {
         public string artist { get; set; } //The name of the illustrator of this card face. Newly spoiled cards may not have this field yet.
-        public Colors color_indicator { get; set; } //The colors in this face’s color indicator, if any.
-        public Colors colors { get; set; } //This face’s colors, if the game defines colors for the individual face of this card.
+        public IEnumerable<Color> color_indicator { get; set; } //The colors in this face’s color indicator, if any.
+        public IEnumerable<Color> colors { get; set; } //This face’s colors, if the game defines colors for the individual face of this card.
         public string flavor_text { get; set; } //The flavor text printed on this face, if any.
         public UUID illustration_id { get; set; } //A unique identifier for the card face artwork that remains consistent across reprints. Newly spoiled cards may not have this field yet.
         public Images image_uris { get; set; } //An object providing URIs to imagery for this face, if this is a double-sided card. If this card is not double-sided, then the image_uris property will be part of the parent object instead.

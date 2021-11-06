@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace Sharpfall
 {
     using UUID = System.String;
-    using Colors = IEnumerable<Color>;
     public class RelatedCard
     {
         public UUID id { get; set; } //An unique ID for this card in Scryfall’s database.
